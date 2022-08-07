@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Trainee.School.Web.Models.AlunoViewModel>
+@{
+}
+
+<header>
+    <hgroup>
+        <h2 class="header">Alunos</h2>
+    </hgroup>
+</header>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nome</td>
+                        <td>@item.Matricula</td>
+                        <td>@item.Email</td>
+                        <a asp-action="Details" asp-route-id="@item.IdAluno">Detalhes</a> |
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
